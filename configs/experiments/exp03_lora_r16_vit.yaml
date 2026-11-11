@@ -1,0 +1,5 @@
+# FLAGSHIP RUN: ViT-B/16 + LoRA rank 16 on EuroSAT.
+# This is the configuration referenced by the README headline and the demo.
+inherit: ../base.yaml
+
+name: exp03_lora_r16_vit

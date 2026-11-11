@@ -1,0 +1,8 @@
+# LoRA rank sweep: small rank = fewer trainable params, less capacity.
+inherit: ../base.yaml
+
+name: exp02_lora_r8_vit
+
+lora:
+  rank: 8
+  alpha: 16

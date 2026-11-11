@@ -1,0 +1,10 @@
+# Same LoRA idea adapted to CNNs: low-rank adapters on the 1x1 convs of every
+# ResNet bottleneck (conv1/conv3) — the channel-mixing projections, the CNN
+# analogue of the q/v attention projections. Stem and downsample convs stay frozen.
+inherit: ../base.yaml
+
+name: exp05_lora_r16_resnet
+
+model:
+  backbone: resnet50
+  method: lora

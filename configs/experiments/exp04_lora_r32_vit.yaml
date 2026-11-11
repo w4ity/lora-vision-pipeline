@@ -1,0 +1,8 @@
+# LoRA rank sweep: large rank = more capacity, watch for overfitting + forgetting.
+inherit: ../base.yaml
+
+name: exp04_lora_r32_vit
+
+lora:
+  rank: 32
+  alpha: 64

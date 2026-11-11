@@ -1,0 +1,30 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- Data & artifacts (never commit heavy or generated files) ---
+# Anchored to the repo root ("/data/") so the package's src/vision_pipeline/data/
+# is NOT swallowed by the ignore rule.
+/data/
+/outputs/
+/mlruns/
+/mlartifacts/
+/mlflow.db
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,28 @@
+services:
+  # A/B inference API. Point it at trained runs via LVP_MODELS ("label=run_dir,...").
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      LVP_DEVICE: cpu
+      LVP_MODELS: "lora=outputs/exp03_lora_r16_vit,linear=outputs/exp01_linear_probe_vit"
+    volumes:
+      - ./outputs:/app/outputs
+      - ./data:/app/data
+
+  # Optional MLflow UI: set tracking.tracking_uri to "http://localhost:5000"
+  # in your experiment YAML, then browse runs at http://localhost:5000
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    command: >-
+      mlflow server --host 0.0.0.0 --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --default-artifact-root /mlflow/artifacts
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow:/mlflow
+
+volumes:
+  mlflow: {}

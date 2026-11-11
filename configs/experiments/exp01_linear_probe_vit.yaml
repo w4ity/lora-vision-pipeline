@@ -1,0 +1,11 @@
+# BASELINE: frozen pretrained backbone + trainable classification head.
+# This is the honest "base model" reference: without fine-tuning, a random 10-class
+# head cannot classify EuroSAT at all, so the fair baseline is linear probing.
+inherit: ../base.yaml
+
+name: exp01_linear_probe_vit
+
+model:
+  method: linear_probe
+
+lora: null
